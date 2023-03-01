@@ -1,16 +1,50 @@
-package com.aks;
-public class Test1{
-  public static void main(String[] args){
-  
-  String results =Test.m1();
-  System.out.println(results);
-  String[] res=result.split("");
-  if(res[0].equals("Hello")){
-  
-  System.out.println("Test Passed");
-  }
-  else {
-   System.out.println("Test Failed");
-  }
-  }
+package com.jenkinsdemoTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.JenkinsDemo.HelloApp;
+
+
+
+public class HelloAppTest {
+	
+	@BeforeAll
+	  static void beforeAll() {
+	    System.out.println("Before all Test Cases");
+	  }
+	
+	@BeforeEach
+	  void beforeEach() {
+	    System.out.println("Before each test method");
+	  }
+   
+	
+//	@Test
+//	void testHello1() {
+//		assertEquals("Hello Pavan", "Hello Pavan");
+//	}
+	
+	String checkString = HelloApp.testString();
+	
+	@Test
+	void testString() {
+		assertEquals("Hello", checkString);
+	}
+	
+	 @AfterEach
+	  void afterEach() {
+	    System.out.println("After each test method");
+	  }
+   
+	 @AfterAll
+	  static void afterAll() {
+	    System.out.println("After all test cases");
+	  }
+	
 }
